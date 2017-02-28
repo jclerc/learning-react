@@ -3,14 +3,14 @@ import { connect } from 'react-redux'
 import { toggleTodo, removeTodo } from '../actions'
 import Todo from './Todo'
 
-let TodoList = ({ todos, onToggleClick, onRemoveClick }) => (
+let TodoList = ({ todos, toggleTodo, removeTodo }) => (
   <ul>
     {todos.map((todo, index) =>
       <Todo
         key={index}
         {...todo}
-        onToggleClick={() => onToggleClick(index)}
-        onRemoveClick={() => onRemoveClick(index)}
+        onToggleClick={() => toggleTodo(index)}
+        onRemoveClick={() => removeTodo(index)}
       />,
     )}
   </ul>
@@ -21,22 +21,13 @@ TodoList.propTypes = {
     completed: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired
   }).isRequired).isRequired,
-  onToggleClick: PropTypes.func.isRequired,
-  onRemoveClick: PropTypes.func.isRequired,
+  toggleTodo: PropTypes.func.isRequired,
+  removeTodo: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => ({ todos: state.todos })
+const mapStateToProps = ({ todos }) => ({ todos })
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onToggleClick: (id) => {
-      dispatch(toggleTodo(id))
-    },
-    onRemoveClick: (id) => {
-      dispatch(removeTodo(id))
-    },
-  }
-}
+const mapDispatchToProps = { toggleTodo, removeTodo }
 
 TodoList = connect(
   mapStateToProps,
