@@ -45,18 +45,16 @@ class TodoList extends React.Component {
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     completed: PropTypes.bool.isRequired,
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
   }).isRequired).isRequired,
   toggleTodo: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired,
   changeTodo: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = ({ todos, dispatch }) => ({ todos, dispatch })
-
 const mapDispatchToProps = { toggleTodo, removeTodo, changeTodo, addTodo }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 )(TodoList)

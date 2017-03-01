@@ -96,13 +96,17 @@ button.inline {
   margin-left: 5px;
 }
 
-button.small {
+button.small, button.medium {
   font-size: 10px;
   width: 65px;
   display: inline-block;
   margin-left: 3px;
   padding: 5px 7px;
   vertical-align: middle;
+}
+
+button.medium {
+  width: auto;
 }
 
 ul {

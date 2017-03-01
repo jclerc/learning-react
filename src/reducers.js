@@ -1,6 +1,7 @@
 /* @flow */
 
 import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, CHANGE_TODO } from './actions'
+import { SET_VISIBILITY_FILTER, VisibilityFilters } from './actions'
 
 const todos = (state = [], action) => {
   switch (action.type) {
@@ -33,8 +34,18 @@ const todos = (state = [], action) => {
   }
 }
 
+const filter = (state = VisibilityFilters.SHOW_ALL, action) => {
+  switch (action.type) {
+    case SET_VISIBILITY_FILTER:
+      return action.payload
+    default:
+      return state
+  }
+}
+
 const todoApp = (state = {}, action) => ({
   todos: todos(state.todos, action),
+  filter: filter(state.filter, action),
 })
 
 export default todoApp

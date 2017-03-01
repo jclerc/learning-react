@@ -1,8 +1,9 @@
 import React from 'react'
 import AddTodo from '../containers/AddTodo'
-import TodoList from '../components/TodoList'
+import VisibleTodoList from '../containers/VisibleTodoList'
 import TaskCount from '../components/TaskCount'
 import Clock from '../components/Clock'
+import Filters from '../components/Filters'
 
 const App = () => (
   <div className="container">
@@ -12,8 +13,10 @@ const App = () => (
     </div>
     <h3>Your tasks <TaskCount /></h3>
     <div className="group">
-      <TodoList />
+      <VisibleTodoList />
     </div>
+    <h3>Filter</h3>
+    <Filters />
   </div>
 )
 
