@@ -1,20 +1,15 @@
 /* @flow */
 
 import React, { PropTypes } from 'react'
+import TodoText from './TodoText'
 
-const Todo = ({ onToggleClick, onRemoveClick, completed, text }) => (
+const Todo = ({ onToggleClick, onRemoveClick, onChangeText, completed, text }) => (
   <li>
-    <span
-      style={{
-        textDecoration: completed ? 'line-through' : 'none'
-      }}
-    >
-      {text}
-    </span>
-    <button className="inline" onClick={onToggleClick}>
-      Done
+    <TodoText text={text} completed={completed} onChangeText={onChangeText} />
+    <button className="small" onClick={onToggleClick}>
+      { completed ? 'Undone' : 'Done' }
     </button>
-    <button className="inline" onClick={onRemoveClick}>
+    <button className="small" onClick={onRemoveClick}>
       Delete
     </button>
   </li>
@@ -23,6 +18,7 @@ const Todo = ({ onToggleClick, onRemoveClick, completed, text }) => (
 Todo.propTypes = {
   onToggleClick: PropTypes.func.isRequired,
   onRemoveClick: PropTypes.func.isRequired,
+  onChangeText: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
 }

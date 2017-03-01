@@ -1,6 +1,6 @@
 /* @flow */
 
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO } from './actions'
+import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, CHANGE_TODO } from './actions'
 
 const todos = (state = [], action) => {
   switch (action.type) {
@@ -21,6 +21,13 @@ const todos = (state = [], action) => {
       })
     case REMOVE_TODO:
       return state.filter((item, index) => index !== action.payload)
+    case CHANGE_TODO:
+      return state.map((item, index) => {
+        if (index === action.payload.index) {
+          return Object.assign({}, item, { text: action.payload.text })
+        }
+        return item
+      })
     default:
       return state
   }
