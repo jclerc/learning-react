@@ -8,7 +8,7 @@ class Clock extends React.Component {
   }
 
   componentDidMount() {
-    this.interval = setTimeout(() => this.setState({ date: new Date() }), 1000)
+    this.interval = setInterval(() => this.setState({ date: new Date() }), 1000)
   }
 
   componentWillUnmount() {
