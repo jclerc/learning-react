@@ -45,6 +45,7 @@ input.seamless, input.seamless:focus, input.seamless:active, input.seamless:hove
   border: none;
   font-size: 16px;
   padding-left: 0;
+  border-bottom: 1px solid #EEE;
 }
 
 button, input {
@@ -81,7 +82,10 @@ input.inline {
 }
 
 input.small {
-  width: calc(100% - 136px);
+  width: calc(100% - 146px);
+  margin-right: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 button.inline {
