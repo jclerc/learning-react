@@ -2,6 +2,6 @@
 
 import React from 'react'
 
-const Loader = () => (<div>Loading...</div>)
+const Loader = () => (<div>📦 <i>Loading your data...</i></div>)
 
 export default Loader

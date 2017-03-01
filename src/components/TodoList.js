@@ -2,7 +2,7 @@
 
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { toggleTodo, removeTodo, changeTodo } from '../actions'
+import { addTodo, toggleTodo, removeTodo, changeTodo } from '../actions'
 import Todo from './Todo'
 import Loader from './Loader'
 
@@ -11,9 +11,12 @@ class TodoList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      laoded: false
+      loaded: false
     }
-    setTimeout(() => this.setState({ loaded: true }), 2000)
+    setTimeout(() => {
+      this.setState({ loaded: true })
+      this.props.addTodo('Loaded async')
+    }, 2000)
   }
 
   render() {
@@ -43,15 +46,15 @@ TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
     completed: PropTypes.bool.isRequired,
     text: PropTypes.string.isRequired
-  }).isRequired), // Not required
+  }).isRequired).isRequired,
   toggleTodo: PropTypes.func.isRequired,
   removeTodo: PropTypes.func.isRequired,
   changeTodo: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = ({ todos }) => ({ todos })
+const mapStateToProps = ({ todos, dispatch }) => ({ todos, dispatch })
 
-const mapDispatchToProps = { toggleTodo, removeTodo, changeTodo }
+const mapDispatchToProps = { toggleTodo, removeTodo, changeTodo, addTodo }
 
 export default connect(
   mapStateToProps,
