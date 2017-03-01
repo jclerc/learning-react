@@ -1,6 +1,7 @@
 import React from 'react'
 import AddTodo from '../containers/AddTodo'
 import TodoList from '../components/TodoList'
+import TaskCount from '../components/TaskCount'
 
 const App = () => (
   <div className="container">
@@ -8,7 +9,7 @@ const App = () => (
     <div className="group">
       <AddTodo />
     </div>
-    <h3>Your tasks</h3>
+    <h3>Your tasks <TaskCount /></h3>
     <div className="group">
       <TodoList />
     </div>
