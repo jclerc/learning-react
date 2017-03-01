@@ -40,6 +40,13 @@ input {
     outline: none;
 }
 
+input.seamless, input.seamless:focus, input.seamless:active, input.seamless:hover {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding-left: 0;
+}
+
 button, input {
     border: 1px solid #D7D7D7;
     background: white;
@@ -73,12 +80,25 @@ input.inline {
   display: inline-block;
 }
 
+input.small {
+  width: calc(100% - 136px);
+}
+
 button.inline {
   width: calc(30% - 5px);
   display: inline-block;
   float: right;
   margin: 0;
   margin-left: 5px;
+}
+
+button.small {
+  font-size: 10px;
+  width: 65px;
+  display: inline-block;
+  margin-left: 3px;
+  padding: 5px 7px;
+  vertical-align: middle;
 }
 
 ul {
