@@ -11,7 +11,7 @@ class TodoList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      loaded: false
+      loaded: false,
     }
     setTimeout(() => {
       this.setState({ loaded: true })
@@ -24,21 +24,21 @@ class TodoList extends React.Component {
       return (
         <Loader />
       )
-    } else {
-      return (
-        <ul>
-          {this.props.todos.map((todo, index) =>
-            <Todo
-              key={index}
-              {...todo}
-              onToggleClick={() => this.props.toggleTodo(index)}
-              onRemoveClick={() => this.props.removeTodo(index)}
-              onChangeText={text => this.props.changeTodo(index, text)}
-            />
-          )}
-        </ul>
-      )
     }
+
+    return (
+      <ul>
+        {this.props.todos.map((todo, index) =>
+          <Todo
+            key={index}
+            {...todo}
+            onToggleClick={() => this.props.toggleTodo(index)}
+            onRemoveClick={() => this.props.removeTodo(index)}
+            onChangeText={text => this.props.changeTodo(index, text)}
+          />,
+        )}
+      </ul>
+    )
   }
 }
 
