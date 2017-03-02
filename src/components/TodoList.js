@@ -13,10 +13,14 @@ class TodoList extends React.Component {
     this.state = {
       loaded: false,
     }
-    setTimeout(() => {
+    this.timeout = setTimeout(() => {
       this.setState({ loaded: true })
       this.props.addTodo('Loaded async')
     }, 2000)
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeout)
   }
 
   render() {
