@@ -10,7 +10,6 @@ class TaskCount extends Component {
   }
 
   render() {
-    console.log('TASKCOUNT RENDER');
     return (
       <span style={{ fontWeight: 'normal' }}>
         <span>{ this.props.count }{'/'}{ this.props.all }</span>
