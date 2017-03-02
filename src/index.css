@@ -97,6 +97,10 @@ button:active, input:focus {
     background: #FCFCFC;
 }
 
+button.active {
+  background: #EEE;
+}
+
 input.inline {
   width: 70%;
   display: inline-block;
