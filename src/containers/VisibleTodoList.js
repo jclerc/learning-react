@@ -1,22 +1,29 @@
 
 import { connect } from 'react-redux'
 import TodoList from '../components/TodoList'
+import { createSelector } from 'reselect'
 
-const filterTodos = (todos, filter) => {
-  switch (filter) {
-    case 'SHOW_COMPLETED':
-      return todos.filter(todo => todo.completed)
-    case 'SHOW_ACTIVE':
-      return todos.filter(todo => !todo.completed)
-    case 'SHOW_ALL':
-    default:
-      return todos
+const getFilter = ({ filter }) => filter
+const getTodos = ({ todos }) => todos
+
+const filterTodos = createSelector(
+  [ getFilter, getTodos ],
+  (filter, todos) => {
+    switch (filter) {
+      case 'SHOW_COMPLETED':
+        return todos.filter(todo => todo.completed)
+      case 'SHOW_ACTIVE':
+        return todos.filter(todo => !todo.completed)
+      case 'SHOW_ALL':
+      default:
+        return todos
+    }
   }
-}
+)
 
 const mapStateToProps = (state) => {
   return {
-    todos: filterTodos(state.todos, state.filter),
+    todos: filterTodos(state),
   }
 }
 
