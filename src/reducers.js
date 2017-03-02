@@ -1,11 +1,10 @@
 /* @flow */
 
-import { ADD_TODO, TOGGLE_TODO, REMOVE_TODO, CHANGE_TODO } from './actions'
-import { SET_VISIBILITY_FILTER, VisibilityFilters } from './actions'
+import * as actions from './actions'
 
 const todos = (state = [], action) => {
   switch (action.type) {
-    case ADD_TODO:
+    case actions.ADD_TODO:
       return [
         ...state,
         {
@@ -13,16 +12,16 @@ const todos = (state = [], action) => {
           completed: false,
         },
       ]
-    case TOGGLE_TODO:
+    case actions.TOGGLE_TODO:
       return state.map((item, index) => {
         if (index === action.payload) {
           return Object.assign({}, item, { completed: !item.completed })
         }
         return item
       })
-    case REMOVE_TODO:
+    case actions.REMOVE_TODO:
       return state.filter((item, index) => index !== action.payload)
-    case CHANGE_TODO:
+    case actions.CHANGE_TODO:
       return state.map((item, index) => {
         if (index === action.payload.index) {
           return Object.assign({}, item, { text: action.payload.text })
@@ -34,10 +33,31 @@ const todos = (state = [], action) => {
   }
 }
 
-const filter = (state = VisibilityFilters.SHOW_ALL, action) => {
+const filter = (state = actions.VisibilityFilters.SHOW_ALL, action) => {
   switch (action.type) {
-    case SET_VISIBILITY_FILTER:
+    case actions.SET_VISIBILITY_FILTER:
       return action.payload
+    default:
+      return state
+  }
+}
+
+const repos = (state = {}, action) => {
+  switch (action.type) {
+    case actions.REQUEST_REPOS:
+      return Object.assign({}, state, {
+        loading: true,
+      })
+    case actions.FETCH_REPOS:
+      return Object.assign({}, state, {
+        loading: false,
+        data: action.payload,
+      })
+    case actions.FAIL_REPOS:
+      return Object.assign({}, state, {
+        loading: false,
+        error: action.payload,
+      })
     default:
       return state
   }
@@ -46,6 +66,7 @@ const filter = (state = VisibilityFilters.SHOW_ALL, action) => {
 const todoApp = (state = {}, action) => ({
   todos: todos(state.todos, action),
   filter: filter(state.filter, action),
+  repos: repos(state.repos, action)
 })
 
 export default todoApp

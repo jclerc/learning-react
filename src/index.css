@@ -27,6 +27,13 @@ html, body {
   display: inline-block;
 }
 
+.nav li:not(:last-of-type)::after {
+  content: '-';
+  display: inline;
+  color: #CCC;
+  font-weight: normal;
+}
+
 .nav li a, .nav li a:focus, .nav li a:active, .nav li a:hover {
   font-size: 12px;
   text-decoration: none;

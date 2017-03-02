@@ -19,7 +19,7 @@ let store = createStore(
   )
 )
 
-persistStore(store)
+persistStore(store, { blacklist: ['repos'] })
 
 ReactDOM.render(
   <Provider store={store}>
