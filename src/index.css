@@ -12,7 +12,28 @@ html, body {
 
 .container {
     width: 400px;
-    margin: 100px auto 0;
+    margin: 50px auto 0;
+}
+
+.nav {
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 1px solid #EEE;
+  background: #FEFEFE;
+}
+
+.nav li {
+  display: inline-block;
+}
+
+.nav li a, .nav li a:focus, .nav li a:active, .nav li a:hover {
+  font-size: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 0 10px;
+  color: black;
 }
 
 h3 {

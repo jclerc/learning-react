@@ -1,23 +1,26 @@
 import React from 'react'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
-import TaskCount from '../components/TaskCount'
-import Clock from '../components/Clock'
-import Filters from '../components/Filters'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
+import { HomePage, TodoPage, ClockPage } from './Pages'
 
 const App = () => (
-  <div className="container">
-    <h3>Todo App <Clock /></h3>
-    <div className="group">
-      <AddTodo />
+  <Router>
+    <div>
+      <ul className="nav">
+        <li><Link to="/">Home</Link></li>
+        <span>-</span>
+        <li><Link to="/todo">TodoList</Link></li>
+        <span>-</span>
+        <li><Link to="/clock">Clock</Link></li>
+      </ul>
+
+      <div className="container">
+        <Route exact path="/" component={HomePage}/>
+        <Route path="/todo" component={TodoPage}/>
+        <Route path="/clock" component={ClockPage}/>
+      </div>
     </div>
-    <h3>Your tasks <TaskCount /></h3>
-    <div className="group">
-      <VisibleTodoList />
-    </div>
-    <h3>Filter</h3>
-    <Filters />
-  </div>
+  </Router>
 )
 
 export default App

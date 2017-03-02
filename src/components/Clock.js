@@ -16,11 +16,7 @@ class Clock extends React.Component {
   }
 
   render() {
-    return <span style={{
-      fontWeight: 'normal'
-    }}>
-      {this.state.date.toLocaleTimeString()}
-    </span>
+    return <span>{this.state.date.toLocaleTimeString()}</span>
   }
 
 }
