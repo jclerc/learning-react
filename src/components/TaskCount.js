@@ -12,7 +12,7 @@ class TaskCount extends Component {
   render() {
     return (
       <span style={{ fontWeight: 'normal' }}>
-        <span>{ this.props.count }{'/'}{ this.props.all }</span>
+        <span>{this.props.count}/{this.props.all}</span>
       </span>
     )
   }

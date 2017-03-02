@@ -8,11 +8,11 @@ import Loader from './Loader'
 
 class TodoList extends React.Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      loaded: false,
-    }
+  state = {
+    loaded: false,
+  }
+
+  componentDidMount() {
     this.timeout = setTimeout(() => {
       this.setState({ loaded: true })
       this.props.addTodo('Loaded async')
