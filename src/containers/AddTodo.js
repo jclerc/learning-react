@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
-let AddTodo = ({ dispatch }) => {
+let AddTodo = ({ addTodo }) => {
   let input
 
   return (
@@ -10,7 +10,7 @@ let AddTodo = ({ dispatch }) => {
       <form onSubmit={e => {
         e.preventDefault()
         if (input.value.trim()) {
-          dispatch(addTodo(input.value))
+          addTodo(input.value)
         }
         input.value = ''
         input.focus()
@@ -27,6 +27,8 @@ let AddTodo = ({ dispatch }) => {
   )
 }
 
-AddTodo = connect()(AddTodo)
+const mapDispatchToProps = { addTodo }
+
+AddTodo = connect(null, mapDispatchToProps)(AddTodo)
 
 export default AddTodo
