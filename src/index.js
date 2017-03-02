@@ -3,7 +3,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { compose, createStore } from 'redux'
+import { persistStore, autoRehydrate } from 'redux-persist'
 
 import App from './components/App'
 import todoApp from './reducers'
@@ -12,7 +13,13 @@ import './index.css'
 let store = createStore(
   todoApp,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  compose(
+    // applyMiddleware(...),
+    autoRehydrate()
+  )
 )
+
+persistStore(store)
 
 ReactDOM.render(
   <Provider store={store}>
