@@ -30,10 +30,17 @@ class SearchUser extends React.Component {
   }
 
   fetchRepos(name) {
-    this.props.repos(
+    this.props.repos(new Promise((cb, err) => {
       fetch('https://api.github.com/users/' + name + '/repos')
-        .then(response => response.json())
-    )
+        .then(response => {
+          if (response.status < 200 || response.status >= 300) {
+            err('Wrong HTTP status')
+          }
+          return response
+        })
+        .then(response => cb(response.json()))
+        .catch(ex => err(ex))
+    }))
   }
 
 }
