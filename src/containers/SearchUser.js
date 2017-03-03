@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { requestRepos, fetchRepos, failRepos } from '../actions'
+import { repos } from '../actions'
 import 'whatwg-fetch'
 
 class SearchUser extends React.Component {
@@ -30,15 +30,14 @@ class SearchUser extends React.Component {
   }
 
   fetchRepos(name) {
-    this.props.requestRepos()
-    fetch('https://api.github.com/users/' + name + '/repos')
-      .then(response => response.json())
-      .then(body => this.props.fetchRepos(body))
-      .catch(ex => this.props.failRepos(ex.getMessage()))
+    this.props.repos(
+      fetch('https://api.github.com/users/' + name + '/repos')
+        .then(response => response.json())
+    )
   }
 
 }
 
-const mapDispatchToProps = { requestRepos, fetchRepos, failRepos }
+const mapDispatchToProps = { repos }
 
 export default connect(null, mapDispatchToProps)(SearchUser)

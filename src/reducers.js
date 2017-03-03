@@ -44,16 +44,16 @@ const filter = (state = actions.VisibilityFilters.SHOW_ALL, action) => {
 
 const repos = (state = {}, action) => {
   switch (action.type) {
-    case actions.REQUEST_REPOS:
+    case actions.REPOS_PENDING:
       return Object.assign({}, state, {
         loading: true,
       })
-    case actions.FETCH_REPOS:
+    case actions.REPOS_FULFILLED:
       return Object.assign({}, state, {
         loading: false,
         data: action.payload,
       })
-    case actions.FAIL_REPOS:
+    case actions.REPOS_REJECTED:
       return Object.assign({}, state, {
         loading: false,
         error: action.payload,
