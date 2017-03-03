@@ -17,7 +17,9 @@ class RepoList extends React.Component {
     if (this.props.repos.data) {
       return (
         <ul>
-          {this.props.repos.data.map((repo, index) =>
+          {this.props.repos.data
+              .sort((a, b) => (b.stargazers_count - a.stargazers_count))
+              .map((repo, index) =>
             <Repo
               key={index}
               {...repo}
