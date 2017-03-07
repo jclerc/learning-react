@@ -6,6 +6,8 @@ import TaskCount from './TaskCount'
 import Clock from './Clock'
 import Filters from './Filters'
 import RepoList from './RepoList'
+import GistList from './GistList'
+import Gist from './Gist'
 
 const HomePage = () => (
   <div>
@@ -49,7 +51,27 @@ const ClockPage = () => (
   </div>
 )
 
+const GistsPage = () => (
+  <div>
+    <h3>Gists</h3>
+    <div className="group">
+      <GistList />
+    </div>
+  </div>
+)
+
+const GistPage = ({ match }) => (
+  <div>
+    <h3>Gist</h3>
+    <div className="group">
+      <Gist match={match} />
+    </div>
+  </div>
+)
+
 export { HomePage }
 export { TodoPage }
 export { ClockPage }
 export { GithubPage }
+export { GistsPage }
+export { GistPage }
