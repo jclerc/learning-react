@@ -15,12 +15,12 @@ const App = () => (
       </ul>
 
       <div className="container">
-        <Route exact path="/" component={HomePage}/>
-        <Route exact path="/todo" component={TodoPage}/>
-        <Route exact path="/github" component={GithubPage}/>
-        <Route exact path="/clock" component={ClockPage}/>
-        <Route exact path="/gists" component={GistsPage}/>
-        <Route path="/gist/:gistOwner/:gistName" component={GistPage}/>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/todo" component={TodoPage} />
+        <Route exact path="/github" component={GithubPage} />
+        <Route exact path="/clock" component={ClockPage} />
+        <Route exact path="/gists" component={GistsPage} />
+        <Route path="/gist/:gistOwner/:gistName" component={GistPage} />
       </div>
     </div>
   </Router>

@@ -1,19 +1,19 @@
 /* @flow */
 
-import React from 'react';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
-import { Link } from 'react-router-dom';
-import Loader from './Loader';
+import React from 'react'
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
+import { Link } from 'react-router-dom'
+import Loader from './Loader'
 
 const GIST_USER = 'ScottPhillips'
 
-const GistsList = ({ data: { loading, user }}) => {
+const GistsList = ({ data: { loading, user } }) => {
   if (loading) {
     return <Loader />
   }
 
-  return <ul>
+  return (<ul>
     {user.gists.nodes.map(node => (
       <li key={node.id}>
         <Link to={`/gist/${GIST_USER}/${node.name}`}>
@@ -21,7 +21,7 @@ const GistsList = ({ data: { loading, user }}) => {
         </Link>
       </li>
     ))}
-  </ul>
+  </ul>)
 }
 
 const GitQuery = gql`
@@ -37,12 +37,12 @@ const GitQuery = gql`
       }
     }
   }
-`;
+`
 
 export default graphql(GitQuery, {
   options: {
     variables: {
-      user: GIST_USER
-    }
-  }
-})(GistsList);
+      user: GIST_USER,
+    },
+  },
+})(GistsList)

@@ -1,13 +1,13 @@
 
 import { connect } from 'react-redux'
-import TodoList from '../components/TodoList'
 import { createSelector } from 'reselect'
+import TodoList from '../components/TodoList'
 
 const getFilter = ({ filter }) => filter
 const getTodos = ({ todos }) => todos
 
 const filterTodos = createSelector(
-  [ getFilter, getTodos ],
+  [getFilter, getTodos],
   (filter, todos) => {
     switch (filter) {
       case 'SHOW_COMPLETED':
@@ -18,7 +18,7 @@ const filterTodos = createSelector(
       default:
         return todos
     }
-  }
+  },
 )
 
 const mapStateToProps = (state) => {

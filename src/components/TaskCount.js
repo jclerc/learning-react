@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 class TaskCount extends Component {
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     return nextProps.count !== this.props.count || nextProps.all !== this.props.all
   }
 

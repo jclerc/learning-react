@@ -5,34 +5,31 @@ import { connect } from 'react-redux'
 import Repo from './Repo'
 import Loader from './Loader'
 
-class RepoList extends React.Component {
-
-  render() {
-    if (this.props.repos.loading) {
-      return (
-        <Loader />
-      )
-    }
-
-    if (this.props.repos.data) {
-      return (
-        <ul>
-          {this.props.repos.data
-              .sort((a, b) => (b.stargazers_count - a.stargazers_count))
-              .map((repo, index) =>
-            <Repo
-              key={index}
-              {...repo}
-            />,
-          )}
-        </ul>
-      )
-    }
-
+const RepoList = (props) => {
+  if (props.repos.loading) {
     return (
-      <p>Search an user above.</p>
+      <Loader />
     )
   }
+
+  if (props.repos.data) {
+    return (
+      <ul>
+        {props.repos.data
+            .sort((a, b) => (b.stargazers_count - a.stargazers_count))
+            .map((repo, index) =>
+              <Repo
+                key={index}
+                {...repo}
+              />,
+        )}
+      </ul>
+    )
+  }
+
+  return (
+    <p>Search an user above.</p>
+  )
 }
 
 RepoList.propTypes = {

@@ -2,23 +2,28 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
-let AddTodo = ({ addTodo }) => {
+const AddTodo = ({ dispatchAdd }) => {
   let input
 
   return (
     <div>
-      <form onSubmit={e => {
-        e.preventDefault()
-        if (input.value.trim()) {
-          addTodo(input.value)
-        }
-        input.value = ''
-        input.focus()
-      }}>
-        <label>Add a new task</label>
-        <input className="inline" ref={node => {
-          input = node
-        }} />
+      <form
+        onSubmit={e => {
+          e.preventDefault()
+          if (input.value.trim()) {
+            dispatchAdd(input.value)
+          }
+          input.value = ''
+          input.focus()
+        }}
+      >
+        <label htmlFor="input-task">Add a new task</label>
+        <input
+          id="input-task"
+          className="inline" ref={node => {
+            input = node
+          }}
+        />
         <button className="inline" type="submit">
           Add Todo
         </button>
@@ -27,8 +32,6 @@ let AddTodo = ({ addTodo }) => {
   )
 }
 
-const mapDispatchToProps = { addTodo }
+const mapDispatchToProps = { dispatchAdd: addTodo }
 
-AddTodo = connect(null, mapDispatchToProps)(AddTodo)
-
-export default AddTodo
+export default connect(null, mapDispatchToProps)(AddTodo)

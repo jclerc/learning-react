@@ -3,11 +3,11 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { setVisibilityFilter } from '../actions'
 
-const Filter = ({ label, mode, filter, setVisibilityFilter }) => {
+const Filter = ({ label, mode, filter, dispatchVisibility }) => {
   return (
     <button
-      className={ 'medium ' + (filter === mode ? 'active' : '') }
-      onClick={() => setVisibilityFilter(mode)}
+      className={`medium ${filter === mode ? 'active' : ''}`}
+      onClick={() => dispatchVisibility(mode)}
     >
       {label}
     </button>
@@ -21,7 +21,7 @@ Filter.propTypes = {
 
 const mapStateToProps = ({ filter }) => ({ filter })
 
-const mapDispatchToProps = { setVisibilityFilter }
+const mapDispatchToProps = { dispatchVisibility: setVisibilityFilter }
 
 export default connect(
   mapStateToProps,

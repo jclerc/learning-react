@@ -7,9 +7,9 @@ export const CHANGE_TODO = 'CHANGE_TODO'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
 export const REPOS = 'REPOS'
-export const REPOS_PENDING = REPOS + '_PENDING'
-export const REPOS_FULFILLED = REPOS + '_FULFILLED'
-export const REPOS_REJECTED = REPOS + '_REJECTED'
+export const REPOS_PENDING = `${REPOS}_PENDING`
+export const REPOS_FULFILLED = `${REPOS}_FULFILLED`
+export const REPOS_REJECTED = `${REPOS}_REJECTED`
 
 export const addTodo = (text: string) => ({
   type: ADD_TODO,

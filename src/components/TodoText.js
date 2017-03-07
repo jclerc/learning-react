@@ -1,22 +1,18 @@
 
-import React, { PropTypes, Component } from 'react'
+import React, { PropTypes } from 'react'
 
-class TodoText extends Component {
+const TodoText = (props) => (
+  <input
+    className="inline seamless small"
+    style={{
+      textDecoration: props.completed ? 'line-through' : 'none',
+    }}
 
-  render() {
-    return (
-      <input className="inline seamless small"
-        style={{
-          textDecoration: this.props.completed ? 'line-through' : 'none'
-        }}
+    value={props.text}
 
-        value={this.props.text}
-
-        onChange={e => this.props.onChangeText(e.target.value)}
-      />
-    )
-  }
-}
+    onChange={e => props.onChangeText(e.target.value)}
+  />
+)
 
 TodoText.propTypes = {
   text: PropTypes.string.isRequired,
