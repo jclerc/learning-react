@@ -1,0 +1,41 @@
+[ignore]
+
+<PROJECT_ROOT>/examples/.*
+<PROJECT_ROOT>/build/.*
+<PROJECT_ROOT>/.*/node_modules/y18n/.*
+<PROJECT_ROOT>/node_modules/jss/.*
+<PROJECT_ROOT>/.*/__mocks__/.*
+<PROJECT_ROOT>/.*/__tests__/.*
+
+# Ignore Docs
+<PROJECT_ROOT>/docs/.*
+<PROJECT_ROOT>/.*/docs/.*
+
+# Ignore compiled files
+<PROJECT_ROOT>/es/.*
+
+[include]
+./src/
+
+[libs]
+./node_modules/fbjs/flow/lib/dev.js
+./flow
+
+[options]
+module.system=haste
+
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+
+munge_underscores=false
+
+suppress_type=$FlowIssue
+suppress_type=$FlowFixMe
+suppress_type=$FixMe
+
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(>=0\\.\\(3[0-6]\\|[1-2][0-9]\\|[0-9]\\).[0-9]\\)? *\\(site=[a-z,_]*react_native[a-z,_]*\\)?)\\)
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue\\((\\(>=0\\.\\(3[0-6]\\|1[0-9]\\|[1-2][0-9]\\).[0-9]\\)? *\\(site=[a-z,_]*react_native[a-z,_]*\\)?)\\)?:? #[0-9]+
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixedInNextDeploy
+
+[version]
+^0.41.0

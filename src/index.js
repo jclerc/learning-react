@@ -9,6 +9,10 @@ import promiseMiddleware from 'redux-promise-middleware'
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 
+// SSR
+import Express from 'express';
+import { match, RouterContext } from 'react-router';
+
 import App from './components/App'
 import todos from './reducers/todos'
 import filter from './reducers/filter'
