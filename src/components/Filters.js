@@ -11,8 +11,8 @@ const localeVisibilityFilters = {
 
 const Filters = () => {
   return (<div>{
-    Object.keys(VisibilityFilters).map((filter, index) => (
-      <Filter label={localeVisibilityFilters[filter]} key={index} mode={filter} />
+    Object.keys(VisibilityFilters).map(filter => (
+      <Filter label={localeVisibilityFilters[filter]} key={filter} mode={filter} />
     ))
   }</div>)
 }

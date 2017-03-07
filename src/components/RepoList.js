@@ -17,9 +17,9 @@ const RepoList = (props) => {
       <ul>
         {props.repos.data
             .sort((a, b) => (b.stargazers_count - a.stargazers_count))
-            .map((repo, index) =>
+            .map(repo =>
               <Repo
-                key={index}
+                key={repo.id}
                 {...repo}
               />,
         )}

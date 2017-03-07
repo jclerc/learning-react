@@ -14,9 +14,9 @@ const StarIcon = () => (
   </svg>
 )
 
-const Repo = ({ name, forks_count, stargazers_count }) => (
+const Repo = repo => (
   <li>
-    <b>{name}</b> - {forks_count}<ForkIcon /> - {stargazers_count}<StarIcon />
+    <b>{repo.name}</b> - {repo.forks_count}<ForkIcon /> - {repo.stargazers_count}<StarIcon />
   </li>
 )
 
