@@ -8,6 +8,7 @@ import { persistStore, autoRehydrate } from 'redux-persist'
 import promiseMiddleware from 'redux-promise-middleware'
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
+import { base } from './config.json'
 
 // SSR
 // import Express from 'express'
@@ -52,7 +53,7 @@ persistStore(store, { blacklist: ['repos', 'apollo'] })
 ReactDOM.render(
   <ApolloProvider store={store} client={client}>
     <Provider store={store}>
-      <App />
+      <App base={base} />
     </Provider>
   </ApolloProvider>,
   document.getElementById('root'),

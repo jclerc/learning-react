@@ -5,6 +5,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Link } from 'react-router-dom'
 import Loader from './Loader'
+import { base } from '../config.json'
 
 const GIST_USER = 'ScottPhillips'
 
@@ -16,7 +17,7 @@ const GistsList = ({ data: { loading, user } }) => {
   return (<ul>
     {user.gists.nodes.map(node => (
       <li key={node.id}>
-        <Link to={`/gist/${GIST_USER}/${node.name}`}>
+        <Link to={`${base}/gist/${GIST_USER}/${node.name}`}>
           {node.name}
         </Link>
       </li>
