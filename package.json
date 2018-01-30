@@ -2,6 +2,7 @@
   "name": "react-todo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jclerc.github.io/LearningReact/",
   "dependencies": {
     "apollo-client": "^0.10.1",
     "express": "^4.15.2",
