@@ -9,11 +9,6 @@ import promiseMiddleware from 'redux-promise-middleware'
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import { base } from './config'
-
-// SSR
-// import Express from 'express'
-// import { match, RouterContext } from 'react-router'
-
 import App from './components/App'
 import todos from './reducers/todos'
 import filter from './reducers/filter'
@@ -58,24 +53,3 @@ ReactDOM.render(
   </ApolloProvider>,
   document.getElementById('root'),
 )
-
-/*
-import { addTodo, toggleTodo } from './actions'
-
-// Log the initial state
-console.log(store.getState())
-
-// Every time the state changes, log it
-// Note that subscribe() returns a function for unregistering the listener
-let unsubscribe = store.subscribe(() => console.log(store.getState()))
-
-// Dispatch some actions
-store.dispatch(addTodo('Learn about actions'))
-store.dispatch(addTodo('Learn about reducers'))
-store.dispatch(addTodo('Learn about store'))
-store.dispatch(toggleTodo(0))
-store.dispatch(toggleTodo(1))
-
-// Stop listening to state updates
-unsubscribe()
-*/
