@@ -8,7 +8,7 @@ import { persistStore, autoRehydrate } from 'redux-persist'
 import promiseMiddleware from 'redux-promise-middleware'
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
-import { base } from './config.json'
+import { base } from './config'
 
 // SSR
 // import Express from 'express'

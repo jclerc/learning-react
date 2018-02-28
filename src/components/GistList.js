@@ -5,7 +5,7 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { Link } from 'react-router-dom'
 import Loader from './Loader'
-import { base } from '../config.json'
+import { base } from '../config'
 
 const GIST_USER = 'ScottPhillips'
 
